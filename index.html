@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+	<html class="sl-root decks export offline loaded">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Your own webplayer with Nuxt &amp; S3</title>
+
+
+		<link rel="stylesheet" type="text/css" href="lib/offline-v2.css">
+
+
+
+	</head>
+	<body class="reveal-viewport theme-font-montserrat theme-color-black-orange">
+		<div class="reveal">
+			<div class="slides">
+				<section data-id="2ec5f60d725b90c06490ae97bd4b178c"><div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 70px; height: auto;" data-block-id="1a2aa3ff805085aa11ab28b08ebc0bff"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11; color: rgb(34, 34, 34); transition-duration: 0.6s; transition-delay: 0.6s;" data-animation-type="fade-in">
+<h1><strong>Your own webplayer with      &amp;  </strong></h1>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 97.5px; height: 97.5px; left: 470.25px; top: 167.5px; min-width: 1px; min-height: 1px;" data-name="image-f8f910" data-block-id="5d9373edf48d8e0a5fc880cc9b300a00"><div class="sl-block-content" style="z-index: 12; transition-duration: 0.6s; transition-delay: 0.6s;" data-animation-type="fade-in"><img style="" data-natural-width="200" data-natural-height="200" data-lazy-loaded="" data-src="your-own-webplayer-with-nuxt-s3/a6bee94c682333358c28a79c04cbebeb.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 62.0833px; height: 75px; left: 653.241px; top: 179px; min-width: 1px; min-height: 1px;" data-name="image-44a8b5" data-block-id="0ab18026e066132ec5b680cfe2600a39"><div class="sl-block-content" style="z-index: 13; transition-duration: 0.6s; transition-delay: 0.6s;" data-animation-type="fade-in"><img style="" data-natural-width="745" data-natural-height="900" data-lazy-loaded="" data-src="your-own-webplayer-with-nuxt-s3/f0cde320aee064d9608f1fa881634e75.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 960px; height: 720px; left: 5.32907e-14px; top: -10px; min-width: 1px; min-height: 1px;" data-name="image-2378da" data-block-id="be1b8d71b764798e6b05894f4ca8c2f5"><div class="sl-block-content" style="z-index: 10;"><img style="" data-natural-width="1920" data-natural-height="1440" data-lazy-loaded="" data-src="your-own-webplayer-with-nuxt-s3/013a6e8df74ce06c75a49ef3386d8a63"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 217px; left: 15px; top: 647px;" data-name="text-9b23e7" data-block-id="373e3eefea6bce8f4ad3df084c416954"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;">
+<p><span style="font-size:0.7em"><span style="color:#808080">by Jonas Thelemann</span></span></p>
+</div></div></section><section data-id="b4a791a97c26374f1aa7fb8e43beb4e5"><div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 80px; top: 33px;" data-name="text-efce4b" data-block-id="1cae00c0965856fc6bdf28b884d46aa8"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; transition-duration: 0.6s; transition-delay: 0.6s;" data-animation-type="fade-in">
+<h2><strong>On today's menu:</strong></h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 80px; top: 210px;" data-name="text-8070b1" data-block-id="61d35c3130131d6055493a5f1ab44362"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; text-align: left; font-size: 150%; line-height: 1.56;" data-has-line-height="">
+<ol>
+	<li class="fragment" data-fragment-index="0">Why Jonas, that already exists 🙄</li>
+	<li class="fragment" data-fragment-index="1">
+<span style="font-size:1.0em">Nvm, get cheap S3 storage </span>💾</li>
+	<li class="fragment" data-fragment-index="2">
+<span style="font-size:1.0em">Bootstrap a Nuxt app </span>🚀</li>
+	<li class="fragment" data-fragment-index="3">Get some 🔥 tunes</li>
+</ol>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 268px; left: 539px; top: 420px;" data-name="text-200276" data-block-id="de0d2e6df308fea58b10576ca719eb37"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; font-size: 150%; line-height: 1.56;" data-has-line-height="" data-fragment-index="4">
+<p>(homework)</p>
+</div></div></section><section class="stack" data-id="5a23e072666b28653f664023fee324f4"><section data-id="314a2284b3ab98e718f7f2be19c325ab"><div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 80px; top: 45.5px;" data-name="text-8f5765" data-block-id="22f4fbebe464cedf5a2d98db1147a742"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; line-height: 0.975;" data-has-line-height="">
+<h2><strong>Why Jonas,</strong></h2>
+
+<h2><strong>that already exists</strong></h2>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 490px; height: 490px; left: 78.5px; top: 210px; min-width: 1px; min-height: 1px;" data-name="image-101a6c" data-block-id="e8f07f328d7da3b34c5bd2bc884f18bf"><a class="sl-block-content fragment" style="z-index: 11;" href="https://www.mixcloud.com/cReal/" target="_blank" data-fragment-index="0"><img style="" data-natural-width="1080" data-natural-height="1080" data-lazy-loaded="" data-src="your-own-webplayer-with-nuxt-s3/d9d54a5cd5a9d9d76732589e9790349e.jpg"></a></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 313px; left: 568.5px; top: 412px;" data-name="text-384dce" data-block-id="f7ca4d383e24eafe62b56dcf36d8a10d"><a class="sl-block-style" style="z-index: 12;" href="https://www.mixcloud.com/cReal/" target="_blank"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; font-size: 200%;" data-fragment-index="1">
+<p>.com/cReal</p>
+</div></a></div></section><section data-id="2e9f5817e90ca6eeaee2471642ed3e57" data-transition="none"><div class="sl-block" data-block-type="image" style="width: 960px; height: 699.272px; left: 0px; top: 0.364px; min-width: 1px; min-height: 1px;" data-name="image-c9f342" data-block-id="109b9a3724bd4c58d8e1acf918f566a3"><div class="sl-block-content" style="z-index: 10;"><img style="" data-natural-width="961" data-natural-height="700" data-lazy-loaded="" data-src="your-own-webplayer-with-nuxt-s3/73088181514bddab029674dcd8b0e553.png"></div></div></section><section data-id="0e44a8855147ad89c3278678016967ba" data-transition="none"><div class="sl-block" data-block-type="image" style="width: 960px; height: 699.272px; left: 0px; top: 0px; min-width: 1px; min-height: 1px;" data-name="image-5cb126" data-block-id="074939368089f8c5d4483884468121bb"><div class="sl-block-content" style="z-index: 10;"><img style="" data-natural-width="961" data-natural-height="700" data-lazy-loaded="" data-src="your-own-webplayer-with-nuxt-s3/f3791e14160f40e5a6ac569f74df26e8.png"></div></div></section><section data-id="33d67967f3f2b230613cd62dced71b39"><div class="sl-block" data-block-type="image" style="width: 759.771px; height: 560px; left: 100.117px; top: 70px; min-width: 1px; min-height: 1px;" data-name="image-1ffc05" data-block-id="6fcb7603577d78782026229d60ff75f5"><div class="sl-block-content" style="z-index: 10; transition-duration: 0.6s; transition-delay: 1s;" data-animation-type="fade-in"><img style="" data-natural-width="947" data-natural-height="698" data-lazy-loaded="" data-src="your-own-webplayer-with-nuxt-s3/b37b4c9544d485d89c88e49b9223d20d.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180.003px; top: 18px;" data-name="text-b16025" data-block-id="a691f3427e863417e5d0c55834e63c6c"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; transition-duration: 0.6s; transition-delay: 0.6s;" data-animation-type="fade-in">
+<p><strong>Wouldn't</strong></p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180.003px; top: 647px;" data-block-id="01795ed82d638c184b84a79dc5dd9312" data-name="text-ece29b"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; transition-duration: 0.6s; transition-delay: 1.4s;" data-animation-type="fade-in">
+<p><strong>be nice?</strong></p>
+</div></div></section></section><section class="stack" data-id="2364c6e31f6edbcea1d439a1d048f15b"><section data-id="3a89d151de4ae9f34df092ceb0ae900d" data-transition="none"><div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 80px; top: 33px;" data-name="text-a1bbf4" data-block-id="df39033f3a7940a332b492cec1963086"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+<h2>
+<strong>Get cheap S3 storage </strong>💾</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 80px; top: 392.5px;" data-name="text-0152a0" data-block-id="02d0eaef7eb1643a83e29fe274a10de6"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;" data-fragment-index="0">
+<blockquote>
+<p><em><strong>Amazon S3</strong> or <strong>Amazon Simple Storage Service</strong> is a service offered by <a href="https://en.wikipedia.org/wiki/Amazon_Web_Services" target="_blank">Amazon Web Services</a> (AWS) that provides <a href="https://en.wikipedia.org/wiki/Object_storage" target="_blank">object storage</a> through a <a href="https://en.wikipedia.org/wiki/Web_service" target="_blank">web service</a> interface. [...] AWS launched Amazon S3 in the United States on March 14, 2006, then in Europe in November 2007.</em></p>
+</blockquote>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 189px; height: 189px; left: 385.5px; top: 185.5px; min-width: 1px; min-height: 1px;" data-name="image-63384e" data-block-id="95cb0d0ffec78d6f3e8a829925ea8ebd"><a class="sl-block-content fragment" style="z-index: 12;" data-fragment-index="0" href="https://en.wikipedia.org/wiki/Amazon_S3" target="_blank"><img style="" data-natural-width="600" data-natural-height="600" data-lazy-loaded="" data-src="your-own-webplayer-with-nuxt-s3/c7c96fd9737868b7a4945558eaf1c6f5.png"></a></div></section><section data-id="5e0d81fb0dddd63ddd2143659504be15" data-transition="none"><div class="sl-block" data-block-type="iframe" style="width: 960px; height: 560px; left: 0px; top: 140px;" data-name="iframe-4d5a1d" data-block-id="c47c45766911053105f6d42d3ac7e703"><div class="sl-block-content" style="z-index: 10; transition-duration: 0.6s; transition-delay: 0.6s;" data-animation-type="fade-in"><iframe webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" sandbox="allow-forms allow-scripts allow-popups allow-same-origin allow-pointer-lock allow-presentation" data-src="https://www.scaleway.com/en/"></iframe></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 80px; top: 33px;" data-name="text-a1bbf4" data-block-id="2528fe74b994abc8cba5dc17c8ebe939"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<h2>
+<strong>Get cheap S3 storage </strong>💾</h2>
+</div></div></section><section data-id="b6a832d129aae8b63a12982481ef9959" data-transition="fade"><div class="sl-block" data-block-type="image" style="width: 915.801px; height: 700px; left: 22.0995px; top: 0px; min-width: 1px; min-height: 1px;" data-name="image-75644c" data-block-id="a8f911d5775796423d9560e97b3b38e6"><div class="sl-block-content" style="z-index: 10;"><img style="" data-natural-width="1184" data-natural-height="905" data-lazy-loaded="" data-src="your-own-webplayer-with-nuxt-s3/0047394c23bf706a8e423003fe8133b8.png"></div></div></section><section data-id="35da6b52fcf56954b51a78f255768a48" data-transition="fade"><div class="sl-block" data-block-type="image" style="width: 915.801px; height: 700px; left: 22.0995px; top: 0px; min-width: 1px; min-height: 1px;" data-name="image-f4a556" data-block-id="6efa1b6109e8f7ee5671567efb0f056e"><div class="sl-block-content" style="z-index: 10;"><img style="" data-natural-width="1184" data-natural-height="905" data-lazy-loaded="" data-src="your-own-webplayer-with-nuxt-s3/57c667dc3d1402e6a0842587a22ba577.png"></div></div></section><section data-id="771fd4b10887ba792cc8cc0160305857" data-transition="fade"><div class="sl-block" data-block-type="image" style="width: 915.801px; height: 700px; left: 22.0995px; top: 0px; min-width: 1px; min-height: 1px;" data-name="image-e25ea0" data-block-id="0146558ddb06ea61f247fbec7bc2eb60"><div class="sl-block-content" style="z-index: 10;"><img style="" data-natural-width="1184" data-natural-height="905" data-lazy-loaded="" data-src="your-own-webplayer-with-nuxt-s3/08eebbdd30cb3e4a3ecbbe64731f346c.png"></div></div></section><section data-id="d808047f46464017f5122291d8d1998b" data-transition="fade"><div class="sl-block" data-block-type="image" style="width: 915.801px; height: 700px; left: 22.1px; top: 0px; min-width: 1px; min-height: 1px;" data-name="image-5d6e59" data-block-id="984fc1722023fa091647d17aea9f2076"><div class="sl-block-content" style="z-index: 10;"><img style="" data-natural-width="1184" data-natural-height="905" data-lazy-loaded="" data-src="your-own-webplayer-with-nuxt-s3/525ba1fd8cbead07b59a43d5b855b008.png"></div></div></section><section data-id="853f607ae638536ae5b8a7ba31a036f5" data-transition="fade"><div class="sl-block" data-block-type="image" style="width: 915.801px; height: 700px; left: 22.1px; top: 0px; min-width: 1px; min-height: 1px;" data-name="image-dfa669" data-block-id="c95c9cf198eb4e51a05827769ab71779"><div class="sl-block-content" style="z-index: 10;"><img style="" data-natural-width="1184" data-natural-height="905" data-lazy-loaded="" data-src="your-own-webplayer-with-nuxt-s3/8114700c8d504f39b19650c55424bf50.png"></div></div></section><section data-id="0b7a667b2fe6cd5a3ba83425ebf2e3a0" data-transition="fade"><div class="sl-block" data-block-type="image" style="width: 915.801px; height: 700px; left: 22.1px; top: 0px; min-width: 1px; min-height: 1px;" data-name="image-bad393" data-block-id="7048e9ba8cc22601fa9e176e23748b3e"><div class="sl-block-content" style="z-index: 10;"><img style="" data-natural-width="1184" data-natural-height="905" data-lazy-loaded="" data-src="your-own-webplayer-with-nuxt-s3/116491caf4555025d912c24b6831ec53.png"></div></div></section><section data-id="2a063d3c78790c3d6bfac7d309634279" data-transition="fade"><div class="sl-block" data-block-type="image" style="width: 915.801px; height: 700px; left: 22.1px; top: 0px; min-width: 1px; min-height: 1px;" data-name="image-2f9788" data-block-id="fd9e0acf6de72318ff0de6f56b35cc17"><div class="sl-block-content" style="z-index: 10;"><img style="" data-natural-width="1184" data-natural-height="905" data-lazy-loaded="" data-src="your-own-webplayer-with-nuxt-s3/bf2f9bcd1e9fe9f8f3586327cac651c7.png"></div></div></section><section data-id="7509ad3e85084368b1de939e3e63d821"><div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 80px; top: 0px;" data-name="text-891744" data-block-id="76202bb92d38bdee99ce35b64181dc07"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; text-align: left; font-size: 150%; line-height: 1.56;" data-has-line-height="">
+<ul>
+	<li class="visible">add files by drag and drop</li>
+	<li class="fragment" data-fragment-index="0">install &amp; configure the <a href="https://aws.amazon.com/de/cli/" target="_blank">AWS CLI</a>
+</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 490px; left: 0px; top: 175px;" data-block-id="c9e9b5cfc2725ac968cdd3215fdb6c37" data-name="code-9d8165"><div class="sl-block-content notranslate fragment" data-highlight-theme="monokai" data-code-frame="osx" style="z-index: 12;" data-code-wrap="true" data-fragment-index="1"><pre class="tex" style="font-size: 16px; line-height: 19px;"><code>$ cat ~/.aws/config
+[plugins]
+endpoint = awscli_plugin_endpoint
+
+[default]
+region = nl-ams
+s3 =
+  endpoint_url = https://s3.nl-ams.scw.cloud
+  signature_version = s3v4
+  max_concurrent_requests = 100
+  max_queue_size = 1000
+  multipart_threshold = 50MB
+  # Edit the multipart_chunksize value according to the file sizes that you want to upload. The present configuration allows to upload files up to 10 GB (100 requests * 10MB). For example setting it to 5GB allows you to upload files up to 5TB.
+  multipart_chunksize = 10MB
+s3api =
+  endpoint_url = https://s3.nl-ams.scw.cloud
+
+$ cat ~/.aws/credentials
+[default]
+aws_access_key_id=SCWX7Q00000000000000
+aws_secret_access_key=48c6e6a6-3710-4e00-0000-000000000000</code></pre></div></div></section><section data-id="cdc1704f9d702dfbcb9a8d9d05ced034"><div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 80px; top: 140px;" data-name="text-891744" data-block-id="6d9faf593753f18c5939ea1745169625"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; text-align: left; font-size: 150%; line-height: 1.56;" data-has-line-height="">
+<ul>
+	<li class="visible">Setup CORS headers</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 350px; left: 0px; top: 245px;" data-name="code-9d8165" data-block-id="c04f826288fa16ec93883d72f7263f94"><div class="sl-block-content notranslate" data-highlight-theme="monokai" data-code-frame="osx" style="z-index: 11;" data-code-wrap="true"><pre class="tex" style="font-size: 16px; line-height: 19px;"><code>$ cat cors.json
+{
+  "CORSRules": [
+    {
+      "AllowedOrigins": ["http://localhost:3000"],
+      "AllowedHeaders": ["*"],
+      "AllowedMethods": ["GET", "HEAD", "POST", "PUT", "DELETE"],
+      "MaxAgeSeconds": 3000,
+      "ExposeHeaders": ["Etag"]
+    }
+  ]
+}
+
+$ aws s3api put-bucket-cors --bucket your-own-webplayer --cors-configuration file://cors.json</code></pre></div></div></section><section data-id="59b54ecf48cd2c232f944122b594b796"><div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 44.5px;" data-name="text-5215bc" data-block-id="63090a9890b02518e8a89402346390c6"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+<h3><strong>Add credentials</strong></h3>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 190.286px;" data-name="text-aa6f26" data-block-id="c06f77b1155cc87d4aeb44166bf5ad72"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p>Use <a href="https://docs.docker.com/engine/swarm/" target="_blank">Docker Swarm</a> or</p>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 800px; height: 246.224px; left: 80px; top: 263.49px; min-width: 1px; min-height: 1px;" data-name="image-e6d274" data-block-id="5249fea469d219fe0a3a2e9451528733"><div class="sl-block-content" style="z-index: 12;"><img style="" data-natural-width="874" data-natural-height="269" data-lazy-loaded="" data-src="your-own-webplayer-with-nuxt-s3/d23d55637d0a040e71372f2e1922e29a.png"></div></div></section></section><section class="stack" data-id="edb0a5ea3065d53c5e07f4ea104f6781"><section data-id="100f872dfdfc78b4ac0712e937ca9591" data-transition="none"><div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 33px;" data-name="text-8eb861" data-block-id="e4d7f7e34354debbd5d6f4d4a74ff08f"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+<h2>
+<strong>Bootstrap Nuxt.js </strong>🚀</h2>
+</div></div>
+<div class="sl-block" data-block-type="iframe" style="width: 960px; height: 560px; left: 0px; top: 140px;" data-name="iframe-6e8e69" data-block-id="a67f9b54363d2fb9c4e0ddc897ff0f79"><div class="sl-block-content fragment" style="z-index: 11;" data-fragment-index="0"><iframe webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" sandbox="allow-forms allow-scripts allow-popups allow-same-origin allow-pointer-lock allow-presentation" data-src="https://nuxtjs.org/"></iframe></div></div></section><section data-id="7b39fa437344fdc8519546d22a407322" data-transition="none"><div class="sl-block" data-block-type="image" style="width: 960px; height: 506.499px; left: 0px; top: 193.501px; min-width: 1px; min-height: 1px;" data-name="image-66e5cb" data-block-id="6e33ecb34a82a5256d563cad98d09954"><div class="sl-block-content fragment" style="z-index: 10;" data-fragment-index="0"><img style="" data-natural-width="1594" data-natural-height="841" data-lazy-loaded="" data-src="your-own-webplayer-with-nuxt-s3/341c1d6145bc2ade2e792fd3a1af6b55.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 33px;" data-name="text-8eb861" data-block-id="4e551fefe3e6c3a7f319230ca89a3405"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<h2>
+<strong>Bootstrap Nuxt.js </strong>🚀</h2>
+</div></div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 31px; left: 0px; top: 140px;" data-name="code-405c6e" data-block-id="0405c1ae8ed30bd7e6de842c3e7b7ec0"><div class="sl-block-content notranslate" data-highlight-theme="monokai" data-code-frame="none" style="z-index: 12;"><pre class="tex" style="font-size: 16px; line-height: 19px;"><code data-line-numbers="">npx create-nuxt-app your-own-webplayer</code></pre></div></div></section><section data-id="bf29125435ad17659c982d28c1eb4f87"><div class="sl-block" data-block-type="image" style="width: 312.071px; height: 700px; left: 0px; top: 0px; min-width: 1px; min-height: 1px;" data-name="image-92b74c" data-block-id="320a304b2eb560fb4a558280a2529788"><div class="sl-block-content" style="z-index: 10;"><img style="" data-natural-width="325" data-natural-height="729" data-lazy-loaded="" data-src="your-own-webplayer-with-nuxt-s3/9cacd0f1be289f44e8307b9def13b35c.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 640px; left: 320px; top: 0px;" data-name="text-575156" data-block-id="5bf36dae0e0409842cfeae7cbd21a3e8"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; text-align: left; font-size: 94%;">
+<ul>
+	<li class="fragment" data-fragment-index="0">
+<span style="color:#FFD700">un-compiled assets</span><span style="color:#abb2bf"> like SASS or JS</span>
+</li>
+	<li class="fragment" data-fragment-index="1"><span style="color:#FFD700">Vue.js components</span></li>
+	<li class="fragment" data-fragment-index="2"><span style="color:#FFD700">application layouts</span></li>
+	<li class="fragment" data-fragment-index="3">
+<span style="color:#FFD700">custom functions</span><span style="color:#abb2bf"> that affect page rendering</span>
+</li>
+	<li class="fragment" data-fragment-index="4"><span style="color:#FFD700">🕳</span></li>
+	<li class="fragment" data-fragment-index="5">
+<span style="color:#abb2bf">application </span><span style="color:#FFD700">Views and Routes</span>
+</li>
+	<li class="fragment" data-fragment-index="6">
+<span style="color:#FFD700">Javascript plugins</span><span style="color:#abb2bf"> running before root mount</span>
+</li>
+	<li class="fragment" data-fragment-index="7">
+<span style="color:#FFD700">static files</span><span style="color:#abb2bf"> like <em>robots.txt </em></span>
+</li>
+	<li class="fragment" data-fragment-index="8">
+<span style="color:#FFD700">Vuex Store</span><span style="color:#abb2bf"> files</span>
+</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 640px; left: 320px; top: 471.5px;" data-block-id="dbdb6fdea800c4c9b668384642ae185a" data-name="text-df0ba8"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; text-align: left; font-size: 94%;">
+<ul>
+	<li class="fragment" data-fragment-index="9"><strong><span style="color:#FFD700">Nuxt's config file</span></strong></li>
+</ul>
+</div></div></section><section data-id="ebea0d4f6dcefe52867a9b53db1d1200"><div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 44.5px;" data-name="text-4ed59d" data-block-id="7df861048fdf283e30c0efb2ae88153b"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+<h3>
+<strong>Welcome</strong>!</h3>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 960px; height: 489.5px; left: 0px; top: 140px; min-width: 1px; min-height: 1px;" data-name="image-d84aa5" data-block-id="4a5d48d1fe435fead5d62fcb5161e211"><div class="sl-block-content" style="z-index: 11;"><img style="" data-natural-width="1920" data-natural-height="979" data-lazy-loaded="" data-src="your-own-webplayer-with-nuxt-s3/139c8924d3e578009875271ed6ec5db9.png"></div></div></section></section><section class="stack" data-id="60c99a0c755616ddfd39746a35ae56cd"><section data-id="20eb4d9a59894965aaf18d9cb8eda020"><div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 45.5px;" data-name="text-16b26e" data-block-id="5676e530291122f6a7e90029212ea03c"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+<h3><strong>Add API / server middleware</strong></h3>
+</div></div>
+<div class="sl-block" data-block-type="code" style="width: 800px; height: 210px; left: 80px; top: 140px;" data-block-id="d0dec5f1e1283174884bd48f66705fd1" data-name="code-53d796"><div class="sl-block-content notranslate fragment" data-highlight-theme="monokai" data-code-frame="osx" style="z-index: 11;" data-fragment-index="0"><pre class="tex" style="font-size: 16px; line-height: 19px;"><code>$ yarn add aws-sdk lodash.mergewith
+$ yarn add @types/lodash.mergewith --dev
+$ cat nuxt.config.js
+...
+	serverMiddleware: ['~/api/playlists.ts', '~/api/signedUrl.ts'],
+}</code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 80px; top: 420px;" data-name="text-c012af" data-block-id="cf52fcf2870ad97dd598961162d5c28f"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; text-align: left; font-size: 150%; line-height: 1.56;" data-has-line-height="" data-fragment-index="0">
+<ul>
+	<li class="visible">/api/playlists.ts</li>
+	<li>/api/signedUrl.ts</li>
+</ul>
+</div></div></section><section data-id="8567293aa9b2841d8ed69b845b457bf9"><div class="sl-block" data-block-type="code" style="width: 960px; height: 630px; left: 0px; top: 70px;" data-name="code-d4c8cc" data-block-id="618cf7cd7983faa6db70ebbd2e92eb66"><div class="sl-block-content notranslate" data-highlight-theme="monokai" data-code-frame="osx" style="z-index: 10;"><pre class="typescript" style="font-size: 16px; line-height: 19px;"><code data-line-numbers="">import fs from 'fs'
+import { ServerResponse, IncomingMessage } from 'http'
+import { URL } from 'url'
+
+import S3 from 'aws-sdk/clients/s3'
+import AWS from 'aws-sdk'
+import merge from 'lodash.mergewith'
+
+export default {
+  path: '/api/playlists',
+  handler(req: IncomingMessage, res: ServerResponse) {
+    const s3 = new S3({
+      apiVersion: '2006-03-01',
+      credentials: new AWS.SharedIniFileCredentials({
+        filename: '/run/secrets/yow_aws-credentials',
+      }),
+      endpoint: 'https://s3.nl-ams.scw.cloud',
+      region: 'nl-ams',
+    })
+
+    const bucket = fs.readFileSync('/run/secrets/yow_aws-bucket', 'utf8').trim()
+    const urlSearchParams = new URL(
+      req.url !== undefined ? req.url : '',
+      'https://example.org/'
+    ).searchParams
+    const continuationToken = urlSearchParams.get('continuation-token')
+    const prefix = urlSearchParams.get('prefix')
+
+    s3.listObjectsV2(
+      {
+        ...{
+          Bucket: bucket,
+          // MaxKeys: 10,
+        },
+        ...(continuationToken !== null &amp;&amp; {
+          ContinuationToken: continuationToken,
+        }),
+        ...(prefix !== null &amp;&amp; {
+          Prefix: prefix,
+        }),
+      },
+      function (err, data) {
+        if (err) {
+          res.writeHead(500)
+          res.end(err.message)
+          return
+        }
+
+        if (data.Contents === undefined) {
+          res.writeHead(204)
+          res.end('No content')
+          return
+        }
+
+        const playlists = {}
+
+        data.Contents.forEach((content) =&gt; {
+          if (content.Key === undefined) {
+            res.writeHead(500)
+            res.end('Content key undefined')
+            return
+          }
+
+          const keyParts = content.Key.split('/')
+
+          if (keyParts[keyParts.length - 1] === '') {
+            // no file
+            return
+          }
+
+          const nestedObject = getNestedObject(
+            keyParts,
+            content.Size !== undefined ? content.Size : 0
+          )
+
+          merge(playlists, nestedObject, (objValue: any, srcValue: any) =&gt; {
+            if (Array.isArray(objValue)) {
+              return objValue.concat(srcValue)
+            }
+          })
+        })
+
+        res.setHeader('Content-Type', 'application/json')
+        res.end(
+          JSON.stringify({
+            playlists,
+            ...(data.NextContinuationToken !== undefined &amp;&amp; {
+              nextContinuationToken: data.NextContinuationToken,
+            }),
+          })
+        )
+      }
+    )
+  },
+}
+
+function getNestedObject(properties: Array&lt;string&gt;, size: Number) {
+  const nestedObject: any = {}
+
+  if (properties.length &lt; 2) {
+    return undefined
+  } else if (properties.length === 2) {
+    if (properties[1].match(/^.+\.mp3$/)) {
+      nestedObject[properties[0]] = { items: [{ name: properties[1], size }] }
+    } else if (properties[1].match(/^.+\.(jpg|png)$/)) {
+      nestedObject[properties[0]] = { cover: true }
+    }
+  } else {
+    // properties.length is &gt;2
+    const key = properties[0]
+    properties.shift()
+    nestedObject[key] = { collections: getNestedObject(properties, size) }
+  }
+
+  return nestedObject
+}
+</code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 17px;" data-name="text-7e79c2" data-block-id="e807caad032e6d93e936a92d67452db0"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p>/api/playlists.ts</p>
+</div></div></section><section data-id="81799ffe8ea8ec4ceb10271cdb592d62"><div class="sl-block" data-block-type="code" style="width: 960px; height: 630px; left: 0px; top: 70px;" data-name="code-d4c8cc" data-block-id="8dc14107c7c64f18ca43047cd2b10a78"><div class="sl-block-content notranslate" data-highlight-theme="monokai" data-code-frame="osx" style="z-index: 10;"><pre class="typescript" style="font-size: 16px; line-height: 19px;"><code data-line-numbers="">import fs from 'fs'
+import { ServerResponse, IncomingMessage } from 'http'
+import { URL } from 'url'
+
+import S3 from 'aws-sdk/clients/s3'
+import AWS from 'aws-sdk'
+
+export default {
+  path: '/api/signedUrl',
+  handler(req: IncomingMessage, res: ServerResponse) {
+    const s3 = new S3({
+      apiVersion: '2006-03-01',
+      credentials: new AWS.SharedIniFileCredentials({
+        filename: '/run/secrets/yow_aws-credentials',
+      }),
+      endpoint: 'https://s3.nl-ams.scw.cloud',
+      region: 'nl-ams',
+    })
+
+    const bucket = fs.readFileSync('/run/secrets/yow_aws-bucket', 'utf8').trim()
+    const key = new URL(
+      req.url !== undefined ? req.url : '',
+      'https://example.org/'
+    ).searchParams.get('key')
+
+    s3.getSignedUrlPromise('getObject', {
+      Bucket: bucket,
+      Expires: 21600, // 6h
+      Key: key,
+    }).then(
+      function (url) {
+        res.end(url)
+      },
+      function (err) {
+        res.writeHead(500)
+        res.end(err.message)
+      }
+    )
+  },
+}
+</code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 17px;" data-name="text-7e79c2" data-block-id="76a551f924f3e590be2aabfcd9674c9d"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p>/api/signedUrl.ts</p>
+</div></div></section></section><section class="stack" data-id="dba61b8a6b4696e63624bedfa4572d28"><section data-id="183273eb3586338fabb26268b6057519" data-transition="fade"><div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 45.5px;" data-name="text-16b26e" data-block-id="4876d89a90d89b5be518f318d2dff1bc"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+<h3><strong>Add components</strong></h3>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 759.771px; height: 560px; left: 100.115px; top: 140px; min-width: 1px; min-height: 1px;" data-name="image-1ffc05" data-block-id="8cc339f81a11d68824e40c5874d7f558"><div class="sl-block-content fragment" style="z-index: 11;" data-fragment-index="0"><img style="" data-natural-width="947" data-natural-height="698" data-lazy-loaded="" data-src="your-own-webplayer-with-nuxt-s3/b37b4c9544d485d89c88e49b9223d20d.png"></div></div></section><section data-id="a809a43be99fafff545f84ffa4735804" data-transition="fade"><div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 45.5px;" data-name="text-16b26e" data-block-id="aef89adfe5afd2ecd367f90832ec1486"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+<h3><strong>Add components</strong></h3>
+</div></div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 560px; left: 0px; top: 140px;" data-name="code-3370a8" data-block-id="6f08e5984fa3b263de84718a34c34414"><div class="sl-block-content notranslate" data-highlight-theme="monokai" data-code-frame="osx" style="z-index: 11; transition-duration: 0.6s; transition-delay: 0.6s;" data-animation-type="fade-in"><pre class="tex" style="font-size: 16px; line-height: 19px;"><code>$ yarn add @fortawesome/free-solid-svg-icons nuxt-fontawesome nuxt-property-decorator
+$ cat nuxt.config.json
+...
+modules: [
+  // Doc: https://axios.nuxtjs.org/usage
+  '@nuxtjs/axios',
+  'nuxt-fontawesome',
+],
+...
+axios: {
+  baseURL: 'http://localhost:3000/api/',
+},
+...
+fontawesome: {
+  imports: [
+    {
+      set: '@fortawesome/free-solid-svg-icons',
+      icons: ['faDownload', 'faPlay'],
+    },
+  ],
+},
+...
+$ cat vue-shim.d.ts
+declare module '*.vue' {
+  import axios from '@nuxtjs/axios'
+}</code></pre></div></div></section><section data-id="7a8a45fc686ca4a15932f6994d211b0e" data-transition="fade"><div class="sl-block" data-block-type="image" style="width: 518px; height: 518px; left: 221px; top: 91px; min-width: 1px; min-height: 1px;" data-name="image-128b7c" data-block-id="c64dddcd5b05a222ad1a27df30d7952e"><div class="sl-block-content" style="z-index: 10; transition-duration: 0.6s; transition-delay: 0.6s;" data-animation-type="fade-in"><img style="" data-natural-width="900" data-natural-height="900" data-lazy-loaded="" data-src="your-own-webplayer-with-nuxt-s3/625aff2e1a182a13c798c673fb1526c6.jpg"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 17px;" data-name="text-7e79c2" data-block-id="c438c79c4576ae515f8b0afe982bf4a9"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p>/assets/playlist-cover_default.jpg</p>
+</div></div></section><section data-id="804e4addbd28fb72d57df025ebe90e67" data-transition="fade"><div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 17px;" data-name="text-7e79c2" data-block-id="723ac8661cb8e7024d844485afc7b017"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+<p>/components/Playlist.vue</p>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 483.467px; height: 518px; left: 238.267px; top: 91px; min-width: 1px; min-height: 1px;" data-name="image-4736db" data-block-id="2c0765e7b74026adb375803dd13e06f6"><div class="sl-block-content" style="z-index: 11; transition-duration: 0.6s; transition-delay: 0.6s;" data-animation-type="fade-in"><img style="" data-natural-width="350" data-natural-height="375" data-lazy-loaded="" data-src="your-own-webplayer-with-nuxt-s3/afc4e1c50625d8f97c94db2b4d1dab10.png"></div></div></section><section data-id="2db2bf40221e178222e4850da141878e" data-transition="fade"><div class="sl-block" data-block-type="code" style="width: 960px; height: 630px; left: 0px; top: 70px;" data-name="code-d4c8cc" data-block-id="06fea46ac30841b84628734aca6c4a9a"><div class="sl-block-content notranslate" data-highlight-theme="monokai" data-code-frame="osx" style="z-index: 10;"><pre class="typescript" style="font-size: 16px; line-height: 19px;"><code data-line-numbers="">&lt;template&gt;
+  &lt;section&gt;
+    &lt;img :src="coverUrl" /&gt;
+    &lt;h1 class="leading-tight m-0 mt-1 text-2xl text-left"&gt;
+      {{ playlist.name }}
+    &lt;/h1&gt;
+  &lt;/section&gt;
+&lt;/template&gt;
+
+&lt;script lang="ts"&gt;
+import merge from 'lodash.mergewith'
+import { Component, Prop, Vue } from 'nuxt-property-decorator'
+
+interface Playlist {
+  name: string
+  items: any[]
+}
+
+@Component({})
+export default class extends Vue {
+  @Prop({ type: Object }) readonly playlist!: Playlist
+
+  coverUrl = require('~/assets/playlist-cover_default.jpg')
+
+  created() {
+    if ((this.playlist.items as any).cover) {
+      this.getCoverUrl(this.playlist.name)
+    }
+  }
+
+  async getCoverUrl(name: string) {
+    const key = `${
+      this.$route.query.playlist !== undefined
+        ? `${this.$route.query.playlist}/`
+        : ''
+    }${name}/playlist-cover.jpg`
+    this.coverUrl = await this.$axios.$get('/signedUrl', {
+      params: new URLSearchParams(
+        merge(
+          {},
+          {
+            ...(key !== undefined &amp;&amp; {
+              key,
+            }),
+          }
+        )
+      ),
+    })
+  }
+}
+&lt;/script&gt;
+</code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 17px;" data-name="text-7e79c2" data-block-id="ccca7c971303b9d52400b6cd665f06e8"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p>/components/Playlist.vue</p>
+</div></div></section><section data-id="6eb4877ca4adff6f88783dcdacbc826c" data-transition="fade"><div class="sl-block" data-block-type="code" style="width: 960px; height: 560px; left: 0px; top: 140px;" data-name="code-d4c8cc" data-block-id="803c82b7deb6a771cdbd2ea5a8ef7658"><div class="sl-block-content notranslate fragment" data-highlight-theme="monokai" data-code-frame="osx" style="z-index: 10;" data-fragment-index="0"><pre class="typescript" style="font-size: 16px; line-height: 19px;"><code data-line-numbers="">&lt;template&gt;
+  &lt;div class="flex select-none"&gt;
+    &lt;button class="ml-2 mr-3 lg:mr-10" title="download" @click="download()"&gt;
+      &lt;font-awesome-icon :icon="['fas', 'download']" /&gt;
+    &lt;/button&gt;
+    &lt;button
+      class="cursor-default flex-grow py-2 lg:py-3 text-left"
+      @click="itemClick"
+    &gt;
+      {{ playlistItem.name.replace(/\.mp3$/, '') }}
+    &lt;/button&gt;
+    &lt;button class="ml-3 lg:ml-10 mr-2" title="play" @click="play()"&gt;
+      &lt;font-awesome-icon :icon="['fas', 'play']" /&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script lang="ts"&gt;
+import merge from 'lodash.mergewith'
+import { Component, Prop, Vue } from 'nuxt-property-decorator'
+
+interface PlaylistItem {
+  name: string
+  size: number
+}
+
+@Component({})
+export default class extends Vue {
+  @Prop({ type: Object, required: true }) readonly playlistItem!: PlaylistItem
+  @Prop({ type: Function, required: true })
+  readonly setSourceFunction!: Function
+
+  async getSignedUrl() {
+    const key = this.$route.query.playlist + '/' + this.playlistItem.name
+    return await this.$axios.$get('/signedUrl', {
+      params: new URLSearchParams(
+        merge(
+          {},
+          {
+            ...(key !== undefined &amp;&amp; {
+              key,
+            }),
+          }
+        )
+      ),
+    })
+  }
+
+  async download() {
+    const link = document.createElement('a')
+    link.setAttribute('href', await this.getSignedUrl())
+    link.setAttribute('download', '123.mp3')
+    link.click()
+  }
+
+  async play() {
+    this.setSourceFunction(await this.getSignedUrl())
+  }
+
+  itemClick(event: any) {
+    if (event.detail === 2) {
+      // double click
+      this.play()
+    }
+  }
+}
+&lt;/script&gt;
+</code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 17px;" data-name="text-7e79c2" data-block-id="a6ca00502e04af0896769a8fc810332b"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p>/components/PlaylistItem.vue</p>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 403.203px; height: 44.308px; left: 278.399px; top: 70px; min-width: 1px; min-height: 1px;" data-name="image-d5ec4d" data-block-id="069c5215d8cd78e5d3ef550a2ac534f4"><div class="sl-block-content" style="z-index: 12; transition-duration: 0.6s; transition-delay: 0.6s;" data-animation-type="fade-in"><img style="" data-natural-width="364" data-natural-height="40" data-lazy-loaded="" data-src="your-own-webplayer-with-nuxt-s3/423305b7fbb7f621ff8263f657cebe8e.png"></div></div></section></section><section class="stack" data-id="08dd2b4cef207c3bec2f59adfc37722a"><section data-id="bf7cbb8f6f60e9fe440c210a2cd5b0eb"><div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 45.5px;" data-name="text-16b26e" data-block-id="dc6a036b548ec4f674b77df73d1b2fc8"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+<h3><strong>Add <a href="https://github.com/sampotts/plyr" target="_blank">Plyr</a></strong></h3>
+</div></div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 189.5px; left: 0px; top: 230.5px;" data-name="code-3370a8" data-block-id="8fa5e1373844050235e8a874116c87fb"><div class="sl-block-content notranslate fragment" data-highlight-theme="monokai" data-code-frame="osx" style="z-index: 11;" data-fragment-index="0"><pre class="tex" style="font-size: 16px; line-height: 19px;"><code>$ yarn add vue-plyr
+$ yarn add @babel/runtime-corejs3 core-js --dev
+$ cat nuxt.config.js
+...
+css: ['plyr/dist/plyr.css'],
+...
+plugins: ['~/plugins/vue-plyr'],
+...
+build: {
+  /*
+   ** You can extend webpack config here
+   */
+  extend(_config, _ctx) {},
+  /*
+   ** https://github.com/nuxt-community/nuxt-property-decorator
+   */
+  babel: {
+    presets({ _isServer }) {
+      return [
+        ['@nuxt/babel-preset-app', { loose: true, corejs: { version: 3 } }],
+      ]
+    },
+  },
+},</code></pre></div></div>
+<div class="sl-block" data-block-type="image" style="width: 403.2px; height: 46.592px; left: 278.4px; top: 140px; min-width: 1px; min-height: 1px;" data-name="image-0596bf" data-block-id="7622b5f7eac07db9270b6e2751844772"><div class="sl-block-content" style="z-index: 12; transition-duration: 0.6s; transition-delay: 0.6s;" data-animation-type="fade-in"><img style="" data-natural-width="450" data-natural-height="52" data-lazy-loaded="" data-src="your-own-webplayer-with-nuxt-s3/a9f0e937018578c500d43f7e36cbb358.png"></div></div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 254.5px; left: 0px; top: 445.5px;" data-block-id="db0dfdee8a5c978fbacf1437d48cd9fe" data-name="code-19d042"><div class="sl-block-content notranslate fragment" data-highlight-theme="monokai" data-code-frame="osx" style="z-index: 13;" data-fragment-index="1"><pre class="tex" style="font-size: 16px; line-height: 19px;"><code>$ cat plugins/vue-plyr.js
+import Vue from 'vue'
+import VuePlyr from 'vue-plyr/dist/vue-plyr.ssr.js'
+
+// The second argument is optional and sets the default config values for every player.
+Vue.use(VuePlyr, {
+  plyr: {
+    controls: ['progress'],
+  },
+})
+</code></pre></div></div></section><section data-id="480477298c0ec5f90ae64c7722ef8f8d"><div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 45.5px;" data-name="text-16b26e" data-block-id="35e54f45feafaeef95320491240bb607"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+<h3><strong>Fill Index Page</strong></h3>
+</div></div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 140px; left: 0px; top: 140px;" data-name="code-3370a8" data-block-id="69599eb8a8e5b07df5814b42600bb83d"><div class="sl-block-content notranslate" data-highlight-theme="monokai" data-code-frame="osx" style="z-index: 11; transition-duration: 0.6s; transition-delay: 0.6s;" data-animation-type="fade-in"><pre class="tex" style="font-size: 16px; line-height: 19px;"><code>$ yarn add lodash.get
+$ yarn add @types/lodash.get --dev
+
+// and some styling in tailwind.config.js</code></pre></div></div></section><section data-id="cb3cc6ab01c1a10614dcd459e7677e9d"><div class="sl-block" data-block-type="code" style="width: 960px; height: 700px; left: 0px; top: 0px;" data-name="code-fdca34" data-block-id="4484ed13bee69d93a5f9b5814c6ddcd9"><div class="sl-block-content notranslate" data-highlight-theme="monokai" data-code-frame="osx" style="z-index: 10;"><pre class="typescript" style="font-size: 16px; line-height: 19px;"><code data-line-numbers="">&lt;template&gt;
+  &lt;div class="container mx-auto mb-4"&gt;
+    &lt;section&gt;
+      &lt;h1&gt;Player&lt;/h1&gt;
+      &lt;div class="flex flex-col mb-2"&gt;
+        &lt;div class="bg-gray-900 flex-grow p-2"&gt;
+          &lt;div class="m-auto w-5/6"&gt;
+            &lt;h2 v-if="this.$route.query.playlist" class="ml-2"&gt;
+              {{ this.$route.query.playlist }}
+            &lt;/h2&gt;
+            &lt;ul
+              v-if="playlists !== undefined &amp;&amp; playlists.length &gt; 0"
+              class="flex flex-wrap justify-center list-none"
+            &gt;
+              &lt;li
+                v-for="playlist in playlists"
+                :key="playlist.name"
+                class="max-w-xs m-2 mb-4"
+              &gt;
+                &lt;a :alt="playlist.name" :href="getPlaylistLink(playlist.name)"&gt;
+                  &lt;Playlist :playlist="playlist" /&gt;
+                &lt;/a&gt;
+              &lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;div v-if="playlistItems !== undefined &amp;&amp; playlistItems.length &gt; 0"&gt;
+              &lt;ul class="list-none"&gt;
+                &lt;li
+                  v-for="playlistItem in playlistItems"
+                  :key="playlistItem.name"
+                  class="border-b border-gray-800 first:border-t hover:bg-gray-800"
+                &gt;
+                  &lt;PlaylistItem
+                    :playlist-item="playlistItem"
+                    :set-source-function="setSource"
+                  /&gt;
+                &lt;/li&gt;
+              &lt;/ul&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div
+            v-if="
+              !(playlists !== undefined &amp;&amp; playlists.length &gt; 0) &amp;&amp;
+              !(playlistItems !== undefined &amp;&amp; playlistItems.length &gt; 0)
+            "
+            class="text-center"
+          &gt;
+            No items found.
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;vue-plyr
+        v-if="playlistItems !== undefined"
+        ref="plyr"
+        class="fixed bottom-0 left-0 right-0"
+      &gt;
+        &lt;audio /&gt;
+      &lt;/vue-plyr&gt;
+    &lt;/section&gt;
+    &lt;!-- player below is for spacing (invisible) --&gt;
+    &lt;vue-plyr v-if="playlistItems !== undefined" class="invisible"&gt;
+      &lt;audio /&gt;
+    &lt;/vue-plyr&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script lang="ts"&gt;
+import get from 'lodash.get'
+import merge from 'lodash.mergewith'
+import { Component, Vue } from 'nuxt-property-decorator'
+
+import Playlist from '~/components/Playlist.vue'
+import PlaylistItem from '~/components/PlaylistItem.vue'
+
+interface AsyncData {
+  playlists?: object
+  playlistItems?: object
+}
+
+interface AxiosPlaylistData {
+  playlists: object
+  nextContinuationToken: string
+}
+
+@Component({
+  components: {
+    Playlist,
+    PlaylistItem,
+  },
+})
+export default class extends Vue {
+  playlists?: Array&lt;object&gt;
+
+  get player() {
+    return (this.$refs.plyr as any).player
+  }
+
+  async asyncData({
+    $axios,
+    query,
+  }: {
+    $axios: any
+    query: any
+  }): Promise&lt;AsyncData&gt; {
+    let continuationToken
+    const playlistsObject: object = {}
+
+    try {
+      do {
+        const playlistData: AxiosPlaylistData = await $axios.$get(
+          '/playlists',
+          {
+            params: new URLSearchParams(
+              merge(
+                {},
+                {
+                  ...(continuationToken !== undefined &amp;&amp; {
+                    'continuation-token': continuationToken,
+                  }),
+                  ...(query.playlist !== undefined &amp;&amp; {
+                    prefix: query.playlist,
+                  }),
+                }
+              )
+            ),
+          }
+        )
+
+        merge(
+          playlistsObject,
+          playlistData.playlists /* flattenPlaylists(playlistData.playlists) */
+        )
+        continuationToken = playlistData.nextContinuationToken
+      } while (continuationToken !== undefined)
+    } catch (e) {
+      return {
+        playlists: undefined,
+        playlistItems: undefined,
+      }
+    }
+
+    const playlists = []
+    const playlistKeyParts =
+      query.playlist !== undefined
+        ? query.playlist.split('/').join('/collections/').split('/')
+        : undefined
+    const playlistsSource =
+      query.playlist !== undefined
+        ? get(playlistsObject, playlistKeyParts, { collections: {} })
+            .collections
+        : playlistsObject
+    const playlistItems =
+      query.playlist !== undefined
+        ? get(playlistsObject, playlistKeyParts, { items: {} }).items
+        : playlistsObject
+
+    if (playlistsSource !== undefined) {
+      for (const [key, value] of Object.entries(playlistsSource)) {
+        playlists.push({ name: key, items: value })
+      }
+    }
+
+    return {
+      playlists,
+      playlistItems,
+    }
+  }
+
+  getPlaylistLink(name: string) {
+    const queryObject = JSON.parse(JSON.stringify(this.$route.query))
+    const playlistLinkParts: Array&lt;string&gt; = []
+
+    queryObject.playlist = encodeURIComponent(
+      [queryObject.playlist, name]
+        .filter(Boolean) // prevent initial join character
+        .join('/')
+    )
+
+    for (const [key, value] of Object.entries(queryObject)) {
+      playlistLinkParts.push(value === null ? key : `${key}=${value}`)
+    }
+
+    return `?${playlistLinkParts.join('&amp;')}`
+  }
+
+  setSource(url: URL) {
+    this.player.config.controls = [
+      'play-large',
+      'play',
+      'progress',
+      'current-time',
+      'mute',
+      'volume',
+      'airplay',
+    ]
+    this.player.source = {
+      type: 'audio',
+      sources: [
+        {
+          src: url,
+          type: 'audio/mp3',
+        },
+      ],
+    }
+
+    this.player.play()
+  }
+}
+&lt;/script&gt;
+</code></pre></div></div></section></section><section class="stack" data-id="fb6fe06874d36c7cd557cfc55ac0c895"><section data-id="7377a0c834feed658e4e0a35e2feba34" data-transition="fade"><div class="sl-block" data-block-type="image" style="width: 820.693px; height: 597.334px; left: 69.6535px; top: 102.666px; min-width: 1px; min-height: 1px;" data-name="image-c3a38e" data-block-id="d9d533f0bda0ad77378425a8a900a1f4"><div class="sl-block-content" style="z-index: 10;"><img style="" data-natural-width="959" data-natural-height="698" data-lazy-loaded="" data-src="your-own-webplayer-with-nuxt-s3/b5f928c0e7cd6d5d99e19b756d091eaf.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 18px;" data-name="text-67a184" data-block-id="0eeb08e92a2803b60f1864d2ddc57b17"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<h3><span style="font-size:1.4em">🥳 <strong><a href="http://localhost:3000" target="_blank">Done!</a> </strong>🥳</span></h3>
+</div></div></section><section data-id="502018a5e341675884b6c171047c804c" data-transition="fade"><div class="sl-block" data-block-type="image" style="width: 949.713px; height: 700px; left: 5.1435px; top: 0px; min-width: 1px; min-height: 1px;" data-name="image-1ffc05" data-block-id="8e84ebcb965ccf8d866ce0a1ec899d46"><div class="sl-block-content" style="z-index: 10;"><img style="" data-natural-width="947" data-natural-height="698" data-lazy-loaded="" data-src="your-own-webplayer-with-nuxt-s3/b37b4c9544d485d89c88e49b9223d20d.png"></div></div></section><section data-id="eccd99ba0833a92a09391dfab5209038" data-transition="fade"><div class="sl-block" data-block-type="image" style="width: 960px; height: 698.728px; left: 0px; top: 0px; min-width: 1px; min-height: 1px;" data-name="image-0bdfcc" data-block-id="b61d1c253016537801469852a2d3711b"><div class="sl-block-content" style="z-index: 10;"><img style="" data-natural-width="959" data-natural-height="698" data-lazy-loaded="" data-src="your-own-webplayer-with-nuxt-s3/a64a289387d859083dc1c4a7df384ff0.png"></div></div></section></section><section data-id="a2551054ecd1112085412227fca95f0e"><div class="sl-block" data-block-type="image" style="width: 431.667px; height: 518px; left: 448.333px; top: 0px; min-width: 1px; min-height: 1px;" data-name="image-6c03b6" data-block-id="2fdd69b61cd9cb804e7d3d57e2c3f260"><div class="sl-block-content" style="z-index: 10; transition-duration: 0.6s; transition-delay: 0.6s;" data-animation-type="fade-in"><img style="" data-natural-width="400" data-natural-height="480" data-lazy-loaded="" data-src="your-own-webplayer-with-nuxt-s3/d87263a19740dd6c8671f25dd47efa62.gif"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 400px; left: 0px; top: 0px;" data-name="text-03b064" data-block-id="f6c2bb917c0685fc9e5a227efcc1fedb"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; font-size: 231%; transition-duration: 0.6s; transition-delay: 0.6s;" data-animation-type="fade-in">
+<p><strong>And now</strong></p>
+
+<p><strong>get</strong></p>
+
+<p><strong>some</strong></p>
+
+<p><strong>🔥</strong></p>
+
+<p><strong>tunes!</strong></p>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 70px; height: 70px; left: 165px; top: 595px; min-width: 1px; min-height: 1px;" data-name="image-8214f1" data-block-id="6192133287bd12de0dfec79d6f3ff1e7"><a class="sl-block-content fragment" style="z-index: 12;" href="https://github.com/dargmuesli/your-own-webplayer" target="_blank" data-fragment-index="0"><img style="" data-natural-width="980" data-natural-height="980" data-lazy-loaded="" data-src="your-own-webplayer-with-nuxt-s3/1d0b72148818c0299c9010dbefd98dea.png"></a></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 640px; left: 240px; top: 610.5px;" data-name="text-65b6e5" data-block-id="7adfc16df1657b52e83b4d98b1eb405c"><a class="sl-block-style" style="z-index: 13;" href="https://github.com/dargmuesli/your-own-webplayer" target="_blank"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;" data-fragment-index="0">
+<p>github.com/dargmuesli/your-own-webplayer</p>
+</div></a></div></section>
+			</div>
+		</div>
+
+		<script>
+			var SLConfig = {"deck": {"id":1918548,"slug":"your-own-webplayer-with-nuxt-s3","title":"Your own webplayer with Nuxt \u0026 S3","description":"","width":960,"height":700,"margin":0.05,"visibility":"all","published_at":"2020-09-06T20:19:36.518Z","sanitize_messages":null,"thumbnail_url":"https://s3.amazonaws.com/media-p.slid.es/thumbnails/1c998234ebc103767eeaa66c7a319c74/thumb.jpg?1599482720","view_count":7,"user":{"id":1142422,"username":"dargmuesli","name":"Jonas Thelemann","description":"","thumbnail_url":"https://www.gravatar.com/avatar/632fa3870b8c01d361cf16615526654b?s=140\u0026d=https%3A%2F%2Fstatic.slid.es%2Fimages%2Fdefault-profile-picture.png","account_type":"lite","team_id":null,"settings":{"id":3934566,"present_controls":true,"present_upsizing":true,"present_pointer":false,"present_notes":true,"default_deck_tag_id":null}},"background_transition":"slide","transition":"slide","theme_id":null,"theme_font":"montserrat","theme_color":"black-orange","auto_slide_interval":0,"comments_enabled":true,"forking_enabled":true,"rolling_links":false,"center":false,"shuffle":false,"should_loop":false,"share_notes":false,"slide_number":true,"slide_count":45,"rtl":false,"version":2,"collaborative":null,"deck_user_editor_limit":1,"data_updated_at":1599820068342,"font_typekit":null,"font_google":null,"time_limit":30,"navigation_mode":"default","upsizing_enabled":true,"notes":{"2ec5f60d725b90c06490ae97bd4b178c":"Setup secrets\nStart service"}}};
+
+
+			// Use local fonts
+			SLConfig.fonts_url = 'lib/fonts/';
+		</script>
+
+		<script src="lib/reveal.js"></script>
+		<script src="lib/reveal-plugins.js"></script>
+		<script src="lib/offline.js"></script>
+
+		<!-- Initialize the presentation -->
+		<script>
+			Reveal.initialize({
+				width: 960,
+				height: 700,
+				margin: 0.05,
+				
+
+				hash: true,
+				controls: true,
+				progress: true,
+				mouseWheel: false,
+				showNotes: false,
+				slideNumber: true,
+				fragmentInURL: true,
+
+				autoSlide: 0,
+				autoSlideStoppable: true,
+
+				autoAnimateMatcher: SL.deck.AutoAnimate.matcher,
+
+				center: false,
+				shuffle: false,
+				loop: false,
+				rtl: false,
+				navigationMode: "default",
+
+				transition: "slide",
+				backgroundTransition: "slide",
+
+				highlight: {
+					escapeHTML: false
+				},
+
+				plugins: [ RevealZoom, RevealNotes, RevealMarkdown, RevealHighlight ]
+			});
+		</script>
+
+		
+
+	</body>
+</html>
